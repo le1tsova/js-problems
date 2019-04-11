@@ -22,7 +22,6 @@ function hexToRgb(color) {
             large += element + element;
         }
     } else large = cutcolor;
-    //   var c = large.substr(0, 2);
     var x = parseInt(large.substr(0, 2), 16);
     var y = parseInt(large.substr(2, 2), 16);
     var z = parseInt(large.substr(4, 2), 16);

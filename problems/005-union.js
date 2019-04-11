@@ -21,14 +21,7 @@ function union(a, b) {
             }
         }
     }
-    // a.forEach(element => {
-    //     if (b.includes(element) && !resArr.includes(element)) {
-    //       resArr.push(element);
-    //     }
-    //   });
-
     function compareNumbers(a, b) {
-        //делаем упорядоченный по возрастанию масси
         return a - b;
     }
     return resArr.sort(compareNumbers);

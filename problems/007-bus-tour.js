@@ -11,14 +11,6 @@
  * @param {number[]} bridges высоты мостов встречающихся на маршруте
  * @returns {undefined|number}
  */
-// function checkBusTour(bridges) {
-//     for (var i = 0; i < bridges.length; i++) {
-//         if (bridges[i] <= 512) {
-//             return (i += 1);
-//         }
-//     }
-// }
-
 function checkBusTour(bridges) {
     var num;
     bridges.forEach(function(element, index) {

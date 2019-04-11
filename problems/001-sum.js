@@ -12,21 +12,11 @@
  * @param {number} n целое число
  * @returns {number}
  */
-// function sum(n) {
-//     if (n == 1 || n <= 0) {
-//         //базис рекурсии
-//         return 1;
-//     }
-//     return n + sum(n - 1);
-// }
 function sum(n) {
-    var resuil = 0;
-    if (n <= 0) return 1;
-
-    for (var i = 1; i <= n; i++) {
-        resuil += i;
+    if (n == 1 || n <= 0) {
+        return 1;
     }
-    return resuil;
+    return n + sum(n - 1);
 }
 
 module.exports = sum;

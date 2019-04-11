@@ -22,8 +22,6 @@ function anagram(x, y) {
     var objY = createObj(y);
 
     for (var key in objX) {
-        // if (key in objY) {
-
         if (objX[key] !== objY[key]) {
             return false;
         }
@@ -45,5 +43,4 @@ function createObj(word) {
     return obj;
 }
 
-//переделать
 module.exports = anagram;
