@@ -13,11 +13,12 @@
  */
 function checkBusTour(bridges) {
     var num;
-    bridges.forEach(function(element, index) {
-        if (element <= 512) {
-            num = index + 1;
+    for (var i = 0; i < bridges.length; i++) {
+        if (bridges[i] <= 512) {
+            num = i + 1;
+            break;
         }
-    });
+    }
 
     return num;
 }

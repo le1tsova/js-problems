@@ -20,13 +20,13 @@ function getWinner(points) {
     var commandTwo = 0;
 
     points.forEach(element => {
-        var dash = element.indexOf("-");
-        commandOne += +element.substring(0, dash);
+        var arrDash = element.split("-");
+        commandOne += +arrDash[0];
+        commandTwo += +arrDash[1];
     });
-    points.forEach(element => {
-        var dash = element.indexOf("-");
-        commandTwo += +element.substr(dash + 1);
-    });
+    // var winner =
+    //     commandOne > commandTwo ? 1 : commandTwo > commandOne ? 2 : undefined;
+    // return winner;
     if (commandOne === commandTwo) return undefined;
     if (commandOne > commandTwo) {
         return 1;
@@ -34,4 +34,3 @@ function getWinner(points) {
 }
 
 module.exports = getWinner;
-``;

@@ -19,22 +19,19 @@
  */
 function getSpringMeltStreak(temperature) {
     var count = 0;
-    var resArr = [];
+    var maxCount = 0;
     temperature.forEach(function(element, index, array) {
         if (element > 0) {
             count++;
         }
-        if (index == array.length - 1 || element <= 0) {
-            resArr.push(count);
+        if (index === array.length - 1 || element <= 0) {
+            if (count > maxCount) {
+                maxCount = count;
+            }
             count = 0;
         }
     });
-    function compareNumbers(a, b) {
-        return b - a;
-    }
-    resArr.sort(compareNumbers);
-
-    return resArr[0];
+    return maxCount;
 }
 
 module.exports = getSpringMeltStreak;

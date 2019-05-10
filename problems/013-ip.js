@@ -24,10 +24,9 @@ function isIpValid(address) {
     if (addr.length != 4) {
         return false;
     }
-
-    for (var i = 0; i <= addr.length; i++) {
-        currentValue = Math.abs(addr[i]);
-        if (currentValue > 255 || currentValue == NaN) {
+    for (let i = 0; i < addr.length; i++) {
+        var currentValue = +addr[i];
+        if (currentValue > 255 || currentValue < 0 || isNaN(currentValue)) {
             return false;
         }
     }

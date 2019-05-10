@@ -13,18 +13,16 @@
  * @returns {undefined|number}
  */
 function census(list) {
-    for (var j = 0; j < list.length; j++) {
-        if (list[j].gender == "Male") {
-            var result;
-            var currentAge = 0;
-            for (var i = 0; i < list.length; i++) {
-                if (list[i].gender == "Male" && list[i].age > currentAge) {
-                    result = i;
-                    currentAge = list[i].age;
-                }
-            }
-            return result + 1;
-        } else return undefined;
-    }
+    var currentAge = 0;
+    var elder;
+
+    list.forEach(function(element, index) {
+        if (element.gender === "Male" && element.age > currentAge) {
+            currentAge = element.age;
+            elder = index + 1;
+        }
+    });
+
+    return elder;
 }
 module.exports = census;

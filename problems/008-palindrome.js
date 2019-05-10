@@ -15,7 +15,7 @@
 function isPalindrome(value) {
     var cloneOne = value.split("");
     for (var i = 0; i < cloneOne.length; i++) {
-        if (cloneOne[i] != cloneOne.reverse()[i]) {
+        if (cloneOne[i] != cloneOne[cloneOne.length - 1 - i]) {
             return false;
         }
     }

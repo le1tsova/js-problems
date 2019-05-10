@@ -22,9 +22,8 @@ function checkTicket(number) {
     for (var i = 3; i <= 5; i++) {
         b += Number.parseInt(number[i]);
     }
-    if (a == b) {
-        return true;
-    } else return false;
+
+    return a === b;
 }
 
 module.exports = checkTicket;

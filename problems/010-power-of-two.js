@@ -12,18 +12,19 @@
  * @returns {number|undefined}
  */
 function getPower(n) {
-    var counter = 2;
-    var powetCount = 1;
-    if (n <= 1) {
+    if (n < 2) {
         return 0;
     }
 
-    while (counter < n) {
-        counter *= 2;
-        powetCount++;
+    var powerCount = 1;
+    while (true) {
+        if (Math.pow(2, powerCount) >= n) {
+            break;
+        }
+        powerCount++;
     }
-    if (Math.pow(2, powetCount) === n) {
-        return powetCount;
+    if (Math.pow(2, powerCount) === n) {
+        return powerCount;
     }
 }
 

@@ -32,10 +32,7 @@ function parentheses(value) {
         }
     }
 
-    if (count !== 0) {
-        return false;
-    }
-    return true;
+    return count === 0;
 }
 
 module.exports = parentheses;

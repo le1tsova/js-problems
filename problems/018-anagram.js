@@ -15,7 +15,7 @@
  * @returns {boolean}
  */
 function anagram(x, y) {
-    if ((x, y.length === 0 || x.length !== y.length)) {
+    if (x.length === 0 || y.length === 0 || x.length !== y.length) {
         return false;
     }
     var objX = createObj(x);

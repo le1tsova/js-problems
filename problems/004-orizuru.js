@@ -21,11 +21,7 @@
 function computeOrizurus(total) {
     var oneBaby = Math.floor(total / 6);
     var smartBaby = total - oneBaby * 2;
-    var result = [];
-    result.push(oneBaby);
-    result.push(smartBaby);
-    result.push(oneBaby);
-    return result;
+    return [oneBaby, smartBaby, oneBaby];
 }
 
 module.exports = computeOrizurus;

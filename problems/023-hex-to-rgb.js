@@ -17,15 +17,17 @@ function hexToRgb(color) {
     var cutcolor = color.substr(1);
     if (cutcolor.length === 3) {
         var large = "";
-        for (let i = 0; i < cutcolor.length; i++) {
-            const element = cutcolor[i];
+        [...cutcolor].forEach(element => {
             large += element + element;
-        }
-    } else large = cutcolor;
-    var x = parseInt(large.substr(0, 2), 16);
-    var y = parseInt(large.substr(2, 2), 16);
-    var z = parseInt(large.substr(4, 2), 16);
-    var result = "rgb(" + x + ", " + y + ", " + z + ")";
+        });
+    } else {
+        large = cutcolor;
+    }
+
+    var r = parseInt(large.substr(0, 2), 16);
+    var g = parseInt(large.substr(2, 2), 16);
+    var b = parseInt(large.substr(4, 2), 16);
+    var result = `rgb(${r}, ${g}, ${b})`;
 
     return result;
 }

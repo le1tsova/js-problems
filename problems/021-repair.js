@@ -18,10 +18,7 @@
 function repair(width, length, height) {
     var v = (width * height + length * height) * 2;
     var result = v / 16;
-
-    if (result <= 1) {
-        return 1;
-    } else return Math.floor(result);
+    return Math.max(1, Math.ceil(result));
 }
 
 module.exports = repair;

@@ -13,7 +13,7 @@
  */
 
 function anagram(x, y) {
-    if ((x, y.length == 0 || x.length != y.length)) {
+    if ((x, y.length === 0 || x.length != y.length)) {
         return false;
     }
     for (var i = 0; i < x.length; i++) {
@@ -25,7 +25,7 @@ function anagram(x, y) {
 }
 
 function searchAnagrams(value) {
-    if (value.length == 0) return value;
+    if (value.length === 0) return value;
     var result = [];
     var arrayWord = value.match(/[a-яА-Я]+/g);
     for (var i = 0; i < arrayWord.length; i++) {

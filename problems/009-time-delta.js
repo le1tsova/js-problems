@@ -19,10 +19,7 @@
 function getTimeDelta(x, y) {
     function second(str) {
         var array = str.split(":");
-        var result = Number(
-            array[0] * 3600 + Number(array[1] * 60) + Number(array[2])
-        );
-        return result;
+        return +array[0] * 3600 + +array[1] * 60 + +array[2];
     }
 
     return second(y) - second(x);

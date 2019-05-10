@@ -16,23 +16,21 @@
  * @returns {string}
  */
 function decrypt(secret) {
-    var distionary = "abcdefghijklmnopqrstuvwxyz";
-    var alphabet = distionary.split("");
-    var secretArr = secret.split("");
-    var result = [];
-    secretArr.forEach(function(element) {
-        if (alphabet.indexOf(element) === 25) {
-            result.push(alphabet[0]);
-        }
-        if (element === " ") {
-            result.push(" ");
-        } else {
-            var indexAlp = alphabet.indexOf(element);
-            result.push(alphabet[indexAlp + 1]);
-        }
-    });
+    var noSecret = "";
+    for (var i = 0; i < secret.length; i++) {
+        var element = secret[i];
 
-    return result.join("");
+        if (element === "z") {
+            noSecret += "a";
+            continue;
+        }
+
+        if (element !== " ") {
+            element = String.fromCharCode(secret.charCodeAt(i) + 1);
+        }
+        noSecret += element;
+    }
+    return noSecret;
 }
 
 module.exports = decrypt;
