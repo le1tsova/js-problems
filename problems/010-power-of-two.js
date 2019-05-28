@@ -23,9 +23,8 @@ function getPower(n) {
         }
         powerCount++;
     }
-    if (Math.pow(2, powerCount) === n) {
-        return powerCount;
-    }
+
+    return Math.pow(2, powerCount) === n ? powerCount : undefined;
 }
 
 module.exports = getPower;

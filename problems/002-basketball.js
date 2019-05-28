@@ -24,9 +24,7 @@ function getWinner(points) {
         commandOne += +arrDash[0];
         commandTwo += +arrDash[1];
     });
-    // var winner =
-    //     commandOne > commandTwo ? 1 : commandTwo > commandOne ? 2 : undefined;
-    // return winner;
+
     if (commandOne === commandTwo) return undefined;
     if (commandOne > commandTwo) {
         return 1;
