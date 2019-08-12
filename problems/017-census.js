@@ -13,7 +13,16 @@
  * @returns {undefined|number}
  */
 function census(list) {
-    return -1;
-}
+    var currentAge = 0;
+    var elder;
 
+    list.forEach(function(element, index) {
+        if (element.gender === "Male" && element.age > currentAge) {
+            currentAge = element.age;
+            elder = index + 1;
+        }
+    });
+
+    return elder;
+}
 module.exports = census;

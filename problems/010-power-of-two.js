@@ -12,7 +12,19 @@
  * @returns {number|undefined}
  */
 function getPower(n) {
-    return -1;
+    if (n < 2) {
+        return 0;
+    }
+
+    var powerCount = 1;
+    while (true) {
+        if (Math.pow(2, powerCount) >= n) {
+            break;
+        }
+        powerCount++;
+    }
+
+    return Math.pow(2, powerCount) === n ? powerCount : undefined;
 }
 
 module.exports = getPower;

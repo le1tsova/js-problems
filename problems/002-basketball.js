@@ -16,7 +16,19 @@
  * @returns {(number|undefined)}
  */
 function getWinner(points) {
-    return undefined;
+    var commandOne = 0;
+    var commandTwo = 0;
+
+    points.forEach(element => {
+        var arrDash = element.split("-");
+        commandOne += +arrDash[0];
+        commandTwo += +arrDash[1];
+    });
+
+    if (commandOne === commandTwo) return undefined;
+    if (commandOne > commandTwo) {
+        return 1;
+    } else return 2;
 }
 
 module.exports = getWinner;

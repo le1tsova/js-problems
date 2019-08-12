@@ -15,7 +15,32 @@
  * @returns {boolean}
  */
 function anagram(x, y) {
-    return undefined;
+    if (x.length === 0 || y.length === 0 || x.length !== y.length) {
+        return false;
+    }
+    var objX = createObj(x);
+    var objY = createObj(y);
+
+    for (var key in objX) {
+        if (objX[key] !== objY[key]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function createObj(word) {
+    var obj = {};
+    for (var i = 0; i < word.length; i++) {
+        var key = word[i].toLowerCase();
+        if (key in obj) {
+            obj[key] += 1;
+        } else {
+            obj[key] = 1;
+        }
+    }
+    return obj;
 }
 
 module.exports = anagram;

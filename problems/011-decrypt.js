@@ -16,7 +16,21 @@
  * @returns {string}
  */
 function decrypt(secret) {
-    return undefined;
+    var noSecret = "";
+    for (var i = 0; i < secret.length; i++) {
+        var element = secret[i];
+
+        if (element === "z") {
+            noSecret += "a";
+            continue;
+        }
+
+        if (element !== " ") {
+            element = String.fromCharCode(secret.charCodeAt(i) + 1);
+        }
+        noSecret += element;
+    }
+    return noSecret;
 }
 
 module.exports = decrypt;

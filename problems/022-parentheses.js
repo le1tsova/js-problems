@@ -16,7 +16,23 @@
  * @returns {boolean}
  */
 function parentheses(value) {
-    return undefined;
+    var count = 0;
+    if (value.length === 0) return false;
+    for (var i = 0; i < value.length; i++) {
+        if (value[i] === "(") {
+            count += 1;
+        }
+
+        if (value[i] === ")") {
+            if (count === 0) {
+                return false;
+            } else {
+                count -= 1;
+            }
+        }
+    }
+
+    return count === 0;
 }
 
 module.exports = parentheses;

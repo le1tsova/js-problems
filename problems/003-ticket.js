@@ -14,7 +14,16 @@
  * @returns {boolean}
  */
 function checkTicket(number) {
-    return undefined;
+    var a = 0;
+    var b = 0;
+    for (var i = 0; i <= 2; i++) {
+        a += Number.parseInt(number[i]);
+    }
+    for (var i = 3; i <= 5; i++) {
+        b += Number.parseInt(number[i]);
+    }
+
+    return a === b;
 }
 
 module.exports = checkTicket;

@@ -13,7 +13,18 @@
  * @returns {number[]}
  */
 function union(a, b) {
-    return undefined;
+    var resArr = [];
+    for (var i = 0; i < a.length; i++) {
+        for (var j = 0; j < b.length; j++) {
+            if (a[i] === b[j] && !resArr.includes(a[i])) {
+                resArr.push(a[i]);
+            }
+        }
+    }
+    function compareNumbers(a, b) {
+        return a - b;
+    }
+    return resArr.sort(compareNumbers);
 }
 
 module.exports = union;
