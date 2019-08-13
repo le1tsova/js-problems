@@ -14,7 +14,22 @@
  * @returns {string}
  */
 function vacation(date) {
-    return undefined;
+    const [day, month, year] = date.split(".");
+
+    const holidays = new Date(year + "," + month + "," + day);
+    holidays.setDate(holidays.getDate() + 14);
+
+    function formatDate(num) {
+        if (num < 10) {
+            return "0" + num;
+        }
+        return num;
+    }
+
+    const lastDay = formatDate(holidays.getDate());
+    const lastMonth = formatDate(holidays.getMonth() + 1);
+
+    return lastDay + "." + lastMonth + "." + holidays.getFullYear();
 }
 
 module.exports = vacation;
