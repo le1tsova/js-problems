@@ -13,7 +13,21 @@
  * @returns {boolean}
  */
 function has(path, object) {
-    return undefined;
-}
+    let obj = object;
 
+    for (let i = 0; i < path.length; i++) {
+        let element = path[i];
+
+        if (typeof obj !== "object" || obj === null) {
+            return false;
+        }
+
+        if (Object.prototype.hasOwnProperty.call(obj, element)) {
+            obj = obj[element];
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
 module.exports = has;
