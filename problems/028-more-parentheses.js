@@ -12,7 +12,55 @@
  * @returns {boolean}
  */
 function parentheses(value) {
-    return undefined;
+    if (value.length === 0) {
+        return false;
+    }
+    let curcle = 0;
+    let figure = 0;
+    let arrow = 0;
+
+    for (let i = 0; i < value.length; i++) {
+        switch (value[i]) {
+            case "(":
+                curcle++;
+                break;
+            case ")":
+                if (curcle === 0) {
+                    return false;
+                } else {
+                    curcle--;
+                }
+                break;
+
+            case "{":
+                figure++;
+                break;
+            case "}":
+                if (figure === 0) {
+                    return false;
+                } else {
+                    figure--;
+                }
+                break;
+
+            case "<":
+                arrow++;
+                break;
+            case ">":
+                if (arrow === 0) {
+                    return false;
+                } else {
+                    arrow--;
+                }
+                break;
+        }
+    }
+
+    if (curcle + figure + arrow === 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 module.exports = parentheses;
