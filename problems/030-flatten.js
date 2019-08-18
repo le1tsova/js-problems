@@ -10,7 +10,20 @@
  * @returns {}
  */
 function flatten(array) {
-    return undefined;
+    const result = [];
+    if (!array.length) {
+        return [];
+    }
+
+    array.forEach(element => {
+        if (typeof element === "number") {
+            result.push(element);
+        } else {
+            result.push(...flatten(element));
+        }
+    });
+
+    return result;
 }
 
 module.exports = flatten;
