@@ -25,14 +25,14 @@ function parentheses(value) {
 
     for (let i = 0; i < value.length; i++) {
         let element = value[i];
-        if (element === "<" || element === "(" || element === "{") {
+        if (!Object.keys(parent).includes(element)) {
             stack.push(element);
         } else {
             if (
                 stack.length &&
                 stack.lastIndexOf(parent[element]) === stack.length - 1
             ) {
-                stack.splice(stack.lastIndexOf(parent[element]), 1);
+                stack.pop();
             } else return false;
         }
     }
