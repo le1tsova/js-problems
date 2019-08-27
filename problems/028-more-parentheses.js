@@ -25,16 +25,16 @@ function parentheses(value) {
 
     for (let i = 0; i < value.length; i++) {
         let element = value[i];
-        if (!Object.keys(parent).includes(element)) {
-            stack.push(element);
-        } else {
-            if (
-                stack.length &&
-                stack.lastIndexOf(parent[element]) === stack.length - 1
-            ) {
-                stack.pop();
-            } else return false;
+
+        if (Object.keys(parent).includes(element)) {
+            if (stack.pop() === parent[element]) {
+                continue;
+            }
+
+            return false;
         }
+
+        stack.push(element);
     }
     return stack.length === 0;
 }
