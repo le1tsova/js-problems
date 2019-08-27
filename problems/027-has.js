@@ -15,8 +15,12 @@
 function has(path, object) {
     let obj = object;
 
-    return path.reduce((result, element) => {
-        if (typeof obj !== "object" || obj === null) {
+    return path.reduce((accumulator, element) => {
+        if (!accumulator) {
+            return false;
+        }
+
+        if (typeof obj !== "object" || !obj) {
             return false;
         }
         if (Object.prototype.hasOwnProperty.call(obj, element)) {
