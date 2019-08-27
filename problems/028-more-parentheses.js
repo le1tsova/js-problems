@@ -15,52 +15,28 @@ function parentheses(value) {
     if (value.length === 0) {
         return false;
     }
-    let curcle = 0;
-    let figure = 0;
-    let arrow = 0;
+    const parent = {
+        "}": "{",
+        ">": "<",
+        ")": "("
+    };
+
+    let stack = [];
 
     for (let i = 0; i < value.length; i++) {
-        switch (value[i]) {
-            case "(":
-                curcle++;
-                break;
-            case ")":
-                if (curcle === 0) {
-                    return false;
-                } else {
-                    curcle--;
-                }
-                break;
-
-            case "{":
-                figure++;
-                break;
-            case "}":
-                if (figure === 0) {
-                    return false;
-                } else {
-                    figure--;
-                }
-                break;
-
-            case "<":
-                arrow++;
-                break;
-            case ">":
-                if (arrow === 0) {
-                    return false;
-                } else {
-                    arrow--;
-                }
-                break;
+        let element = value[i];
+        if (element === "<" || element === "(" || element === "{") {
+            stack.push(element);
+        } else {
+            if (
+                stack.length &&
+                stack.lastIndexOf(parent[element]) === stack.length - 1
+            ) {
+                stack.splice(stack.lastIndexOf(parent[element]), 1);
+            } else return false;
         }
     }
-
-    if (curcle + figure + arrow === 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return stack.length === 0;
 }
 
 module.exports = parentheses;
