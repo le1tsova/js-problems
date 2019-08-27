@@ -14,7 +14,11 @@
  * @param {number} seconds
  * @returns {string}
  */
-
+const HR = 3600;
+const TWO_HOURS = 7200;
+const DAY = 86400;
+const TWO_DAYS = 172800;
+const ONE_WEEK = 604800;
 const TWO_WEEKS = 1209600;
 const FOUR_WEEKS = 2419200;
 
@@ -31,31 +35,31 @@ function timeago(seconds) {
     if (seconds < 1800) {
         return Math.floor(seconds / 60) + " minutes ago";
     }
-    if (seconds < 3600) {
+    if (seconds < HR) {
         return "30 minutes ago";
     }
-    if (seconds < 7200) {
+    if (seconds < TWO_HOURS) {
         return "1 hour ago";
     }
-    if (seconds < 86400) {
-        if (Math.floor(seconds / 3600) <= 12) {
-            return Math.floor(seconds / 3600) + " hours ago";
+    if (seconds < DAY) {
+        if (Math.floor(seconds / HR) <= 12) {
+            return Math.floor(seconds / HR) + " hours ago";
         } else {
             return "12 hours ago";
         }
     }
 
-    if (seconds < 172800) {
+    if (seconds < TWO_DAYS) {
         return "1 day ago";
     }
-    if (seconds < 604800) {
+    if (seconds < ONE_WEEK) {
         return "a few days ago";
     }
     if (seconds < TWO_WEEKS) {
         return "1 week ago";
     }
     if (seconds < FOUR_WEEKS) {
-        return Math.floor(seconds / 3600 / 24 / 7) + " weeks ago";
+        return Math.floor(seconds / ONE_WEEK) + " weeks ago";
     }
     return "undefined";
 }
