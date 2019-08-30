@@ -13,7 +13,22 @@
  * @returns {boolean}
  */
 function has(path, object) {
-    return undefined;
-}
+    let obj = object;
 
+    return path.reduce((accumulator, element) => {
+        if (!accumulator) {
+            return false;
+        }
+
+        if (typeof obj !== "object" || !obj) {
+            return false;
+        }
+        if (Object.prototype.hasOwnProperty.call(obj, element)) {
+            obj = obj[element];
+        } else {
+            return false;
+        }
+        return true;
+    }, true);
+}
 module.exports = has;

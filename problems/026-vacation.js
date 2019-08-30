@@ -13,8 +13,21 @@
  * @param {string} date
  * @returns {string}
  */
+
+function formatDate(num) {
+    return num < 10 ? "0" + num : num;
+}
+
 function vacation(date) {
-    return undefined;
+    const [day, month, year] = date.split(".");
+
+    const holidays = new Date(+year, +month - 1, +day);
+
+    holidays.setDate(holidays.getDate() + 14);
+    const lastDay = formatDate(holidays.getDate());
+    const lastMonth = formatDate(holidays.getMonth() + 1);
+
+    return lastDay + "." + lastMonth + "." + holidays.getFullYear();
 }
 
 module.exports = vacation;
